@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest RIDA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f5;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+            /* UPDATED: Cute Live Pic Background */
+            background-image: url('https://i.imgur.com/cute-anime-live-pic-placeholder.gif'); /* REPLACE THIS URL WITH YOUR ACTUAL CUTE ANIME GIF URL */
+            background-size: cover; /* Covers the entire viewport */
+            background-repeat: no-repeat; /* Prevents repeating */
+            background-attachment: fixed; /* Keeps background fixed when scrolling */
+            background-position: center center; /* Centers the background image */
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%);
+        }
+        
+        .cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .heart {
+            animation: beat 1.5s infinite alternate;
+        }
+        
+        @keyframes beat {
+            to { transform: scale(1.1); }
+        }
+        
+        .message-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .message-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(2deg);
+            transition: all 0.3s ease;
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        /* Removed starry-bg as it will be replaced by the GIF */
+        /* .starry-bg {
+            background-image: radial-gradient(#e0c2ff 1px, transparent 0);
+            background-size: 20px 20px;
+        } */
+
+        /* Typing Effect CSS */
+        .typing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* Adjust height as needed */
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #d57eeb; /* A nice purple color */
+            text-align: center;
+        }
+
+        .animated-text {
+            overflow: hidden; /* Ensures the text is hidden until typed */
+            white-space: nowrap; /* Keeps text on a single line */
+            border-right: .15em solid orange; /* The blinking cursor */
+            animation: 
+                typing 3.5s steps(40, end) infinite,
+                blink-caret .75s step-end infinite;
+            width: 0; /* Start with zero width */
+        }
+
+        /* The typing animation */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange }
+        }
+
+        /* General Animation Classes (initial state) */
+        /* Removed opacity: 0 from .animate-on-scroll to make elements visible by default */
+        .animate-on-scroll, .animate-on-load {
+            /* opacity: 0; */ /* Removed this line */
+        }
+
+        /* NEW Keyframe Animations */
+        @keyframes slide-in-down {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoom-in {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes flip-in-y {
+            from { opacity: 0; transform: perspective(400px) rotateY(90deg); }
+            to { opacity: 1; transform: perspective(400px) rotateY(0deg); }
+        }
+
+        @keyframes bounce-in {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+            0% { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+            20% { transform: scale3d(1.1, 1.1, 1.1); }
+            40% { transform: scale3d(0.9, 0.9, 0.9); }
+            60% { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+            80% { transform: scale3d(0.97, 0.97, 0.97); }
+            100% { opacity: 1; transform: scale3d(1, 1, 1); }
+        }
+
+        @keyframes rotate-in {
+            from { opacity: 0; transform: rotate(-200deg) scale(0.5); }
+            to { opacity: 1; transform: rotate(0deg) scale(1); }
+        }
+
+        @keyframes fade-in-up-big {
+            from { opacity: 0; transform: translateY(200px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoom-in-out {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slide-in-up {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Existing Animations (retained for specific uses) */
+        @keyframes pop-in {
+            0% { opacity: 0; transform: scale(0.8); }
+            70% { opacity: 1; transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fade-in-left {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fade-in-right {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+
+        /* Applied Animation Classes */
+        .animated.slide-in-down { animation: slide-in-down 1s ease-out forwards; }
+        .animated.zoom-in { animation: zoom-in 0.8s ease-out forwards; }
+        .animated.flip-in-y { animation: flip-in-y 1s ease-out forwards; }
+        .animated.bounce-in { animation: bounce-in 1s ease-out forwards; }
+        .animated.rotate-in { animation: rotate-in 1s ease-out forwards; }
+        .animated.fade-in-up-big { animation: fade-in-up-big 1s ease-out forwards; }
+        .animated.zoom-in-out { animation: zoom-in-out 1.5s ease-in-out infinite alternate; } /* Loop for timeline images */
+        .animated.slide-in-up { animation: slide-in-up 1s ease-out forwards; }
+        .animated.pop-in { animation: pop-in 0.7s ease-out forwards; }
+        .animated.fade-in-left { animation: fade-in-left 0.8s ease-out forwards; }
+        .animated.fade-in-right { animation: fade-in-right 0.8s ease-out forwards; }
+
+        /* Staggered animation for message cards */
+        .message-card.animated {
+            animation: bounce-in 1s ease-out forwards;
+        }
+        .message-card:nth-child(1).animated { animation-delay: 0s; }
+        .message-card:nth-child(2).animated { animation-delay: 0.1s; }
+        .message-card:nth-child(3).animated { animation-delay: 0.2s; }
+        .message-card:nth-child(4).animated { animation-delay: 0.3s; } /* This is for 'Your Eyes' */
+        .message-card:nth-child(5).animated { animation-delay: 0.4s; } /* This is for 'My Love for You' */
+        .message-card:nth-child(6).animated { animation-delay: 0.5s; } /* This is for 'You are My Star' */
+        .message-card:nth-child(7).animated { animation-delay: 0.6s; } /* This is for 'A Precious Gift' */
+
+
+        /* Staggered animation for polaroid cards */
+        .polaroid.animated {
+            animation: flip-in-y 1s ease-out forwards;
+        }
+        .polaroid:nth-child(1).animated { animation-delay: 0s; }
+        .polaroid:nth-child(2).animated { animation-delay: 0.1s; }
+        .polaroid:nth-child(3).animated { animation-delay: 0.2s; }
+        /* Add delays for new polaroid cards */
+        .polaroid:nth-child(4).animated { animation-delay: 0.3s; }
+        .polaroid:nth-child(5).animated { animation-delay: 0.4s; }
+        .polaroid:nth-child(6).animated { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class=""> <!-- Removed starry-bg class from body -->
+    <!-- Header with animated heart -->
+    <header class="hero text-center py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-bold text-white cursive mb-4 animate-on-load" data-animation-type="slide-in-down">
+                For My Dearest <span class="heart">❤</span> RIDA
+            </h1>
+            <p class="text-xl text-white/90 animate-on-load" data-animation-type="slide-in-down" style="animation-delay: 0.2s;">A little something to brighten your day, my love</p>
+        </div>
+    </header>
+
+    <!-- Main content grid -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Polaroid photo section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-semibold text-rose-500 mb-8 text-center cursive animate-on-scroll" data-animation-type="fade-in-up-big">Moments We Share</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="polaroid animate-on-scroll">
+                    <img 
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/607f0fcd-bd1a-43c7-815a-f767223ba11a.png" 
+                        alt="Anime-style girl with pink hair smiling while holding heart-shaped balloons in a sunny park"
+                        class="w-full h-auto" 
+                        onerror="this.parentElement.style.display='none'"
+                    />
+                    <p class="text-center mt-4 text-gray-600 animate-on-scroll" data-animation-type="slide-in-up" style="animation-delay: 0.3s;">Balloons of Happiness</p>
+                    <p class="text-center text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="slide-in-up" style="animation-delay: 0.4s;">Rida, your smile fills my heart with joy, just like these balloons!</p>
+                </div>
+                <div class="polaroid -rotate-1 animate-on-scroll">
+                    <img 
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ddad046-267c-4ba2-bc28-c29d2e9fac23.png" 
+                        alt="Cute anime couple sitting on a bench under cherry blossoms, holding hands and looking at each other"
+                        class="w-full h-auto" 
+                        onerror="this.parentElement.style.display='none'"
+                    />
+                    <p class="text-center mt-4 text-gray-600 animate-on-scroll" data-animation-type="slide-in-up" style="animation-delay: 0.4s;">Cherry Blossom Moments</p>
+                    <p class="text-center text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="slide-in-up" style="animation-delay: 0.5s;">Every moment with you, Rida, is as beautiful as cherry blossoms.</p>
+                </div>
+                <div class="polaroid rotate-1 animate-on-scroll">
+                    <img 
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3dd881de-b948-47e7-8c0c-0ae25b074610.png" 
+                        alt="Anime girl with blue hair looking excited while holding a warm cup of hot chocolate in a cozy cafe setting"
+                        class="w-full h-auto" 
+                        onerror="this.parentElement.style.display='none'"
+                    />
+                    <p class="text-center mt-4 text-gray-600 animate-on-scroll" data-animation-type="slide-in-up" style="animation-delay: 0.5s;">Warm Coffee Dates</p>
+                    <p class="text-center text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="slide-in-up" style="animation-delay: 0.6s;">Just like a warm coffee, Rida, you bring comfort and joy to my life.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sweet messages section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-semibold text-rose-500 mb-8 text-center cursive animate-on-scroll" data-animation-type="zoom-in">Little Things About You</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="message-card bg-white rounded-xl p-6 shadow-md border border-rose-100 animate-on-scroll">
+                    <div class="text-rose-500 text-4xl mb-3">🌸</div>
+                    <h3 class="text-xl font-medium mb-2">Your Smile</h3>
+                    <p class="text-gray-600">The way your eyes light up when you smile makes every day brighter.</p>
+                </div>
+                <div class="message-card bg-white rounded-xl p-6 shadow-md border border-rose-100 animate-on-scroll">
+                    <div class="text-rose-500 text-4xl mb-3">💫</div>
+                    <h3 class="text-xl font-medium mb-2">Your Voice</h3>
+                    <p class="text-gray-600">Hearing you talk about things you love gives me butterflies.</p>
+                </div>
+                <div class="message-card bg-white rounded-xl p-6 shadow-md border border-rose-100 animate-on-scroll">
+                    <div class="text-rose-500 text-4xl mb-3">🌈</div>
+                    <h3 class="text-xl font-medium mb-2">Your Heart</h3>
+                    <p class="text-gray-600">The kindness you show to everyone is what makes you truly special.</p>
+                </div>
+                <!-- NEW CARD: Your Eyes -->
+                <div class="message-card bg-white rounded-xl p-6 shadow-md border border-rose-100 animate-on-scroll">
+                    <div class="text-rose-500 text-4xl mb-3">✨</div>
+                    <h3 class="text-xl font-medium mb-2">Your Eyes</h3>
+                    <p class="text-gray-600">Your beautiful eyes hold a universe I love to get lost in, Rida.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: More Sweet Memories -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-semibold text-rose-500 mb-8 text-center cursive animate-on-scroll" data-animation-type="zoom-in">More Sweet Memories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="polaroid -rotate-2 animate-on-scroll">
+                    <img 
+                        src="https://via.placeholder.com/300x200/FFC0CB/FFFFFF?text=Anime+Couple+1" 
+                        alt="Cute anime couple holding hands under a starry sky"
+                        class="w-full h-auto" 
+                        onerror="this.parentElement.style.display='none'"
+                    />
+                    <p class="text-center mt-4 text-gray-600 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.3s;">Under the Stars</p>
+                    <p class="text-center text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.4s;">Rida, every night with you feels like a dream under a million stars.</p>
+                </div>
+                <div class="polaroid rotate-3 animate-on-scroll">
+                    <img 
+                        src="https://via.placeholder.com/300x200/ADD8E6/FFFFFF?text=Anime+Girl+Smile" 
+                        alt="Anime girl smiling brightly with flowers in her hair"
+                        class="w-full h-auto" 
+                        onerror="this.parentElement.style.display='none'"
+                    />
+                    <p class="text-center mt-4 text-gray-600 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.4s;">Your Radiant Smile</p>
+                    <p class="text-center text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.5s;">Your smile, Rida, is the sunshine that brightens my darkest days.</p>
+                </div>
+                <div class="polaroid -rotate-1 animate-on-scroll">
+                    <img 
+                        src="https://via.placeholder.com/300x200/90EE90/FFFFFF?text=Anime+Picnic" 
+                        alt="Anime couple enjoying a picnic in a lush green field"
+                        class="w-full h-auto" 
+                        onerror="this.parentElement.style.display='none'"
+                    />
+                    <p class="text-center mt-4 text-gray-600 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.5s;">Our Cozy Adventures</p>
+                    <p class="text-center text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.6s;">Every adventure with you, Rida, no matter how small, is my favorite.</p>
+                </div>
+            </div>
+        </section>
+        <!-- END NEW SECTION -->
+
+        <!-- New section for Rida -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-semibold text-rose-500 mb-8 text-center cursive animate-on-scroll" data-animation-type="zoom-in">For My Dearest RIDA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="message-card bg-white rounded-xl p-6 shadow-md border border-rose-100 animate-on-scroll">
+                    <div class="text-rose-500 text-4xl mb-3">💖</div>
+                    <h3 class="text-xl font-medium mb-2">My Love for You</h3>
+                    <p class="text-gray-600">Rida, my love for you grows with each passing day, like a beautiful flower blooming.</p>
+                </div>
+                <div class="message-card bg-white rounded-xl p-6 shadow-md border border-rose-100 animate-on-scroll">
+                    <div class="text-rose-500 text-4xl mb-3">🌟</div>
+                    <h3 class="text-xl font-medium mb-2">You are My Star</h3>
+                    <p class="text-gray-600">You shine brighter than any star in the sky, guiding my way, Rida.</p>
+                </div>
+                <div class="message-card bg-white rounded-xl p-6 shadow-md border border-rose-100 animate-on-scroll">
+                    <div class="text-rose-500 text-4xl mb-3">🎁</div>
+                    <h3 class="text-xl font-medium mb-2">A Precious Gift</h3>
+                    <p class="text-gray-600">Having you in my life is the most precious gift, Rida. Thank you for being you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Text Section -->
+        <section class="mb-20">
+            <div class="typing-container">
+                <span id="animated-text" class="animate-on-load"></span>
+                <span class="cursor"></span>
+            </div>
+        </section>
+
+        <!-- Large Anime Pic Section with Animation -->
+        <section id="rida-pic-section" class="mb-20 text-center animate-on-scroll" data-animation-type="rotate-in">
+            <img 
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ddad046-267c-4ba2-bc28-c29d2e9fac23.png" 
+                alt="A beautiful anime couple embracing under a starry night sky, symbolizing deep love and affection."
+                class="w-full max-w-2xl mx-auto rounded-lg shadow-xl mb-6" 
+                onerror="this.parentElement.style.display='none'"
+            />
+            <!-- Removed animate-on-scroll from this p tag to make it always visible -->
+            <p class="text-2xl md:text-3xl font-semibold text-rose-600 cursive">
+                My dear Rida, and Rehman loves his Rida very much.
+            </p>
+        </section>
+
+        <!-- Memory timeline -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-semibold text-rose-500 mb-8 text-center cursive animate-on-scroll" data-animation-type="zoom-in">Our Journey</h2>
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 w-1 h-full bg-gradient-to-b from-rose-300 to-pink-300 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="mb-10 relative">
+                    <div class="flex items-center justify-between">
+                        <div class="w-5/12 px-6 text-right animate-on-scroll" data-animation-type="fade-in-right">
+                            <h3 class="text-xl font-semibold text-rose-600">The First Meeting</h3>
+                            <p class="text-gray-600">That moment when our paths first crossed</p>
+                            <p class="text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.3s;">Rida, meeting you was the best chapter of my life.</p>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-rose-500 border-4 border-white z-10"></div>
+                        <div class="w-5/12 px-6 animate-on-scroll" data-animation-type="zoom-in-out">
+                            <img 
+                                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5303ba86-fccb-4741-8046-3690946f9b20.png" 
+                                alt="Anime-style first meeting at a cafe with surprised expressions and nervous smiles"
+                                class="rounded-lg shadow-md" 
+                                onerror="this.parentElement.style.display='none'"
+                            />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-10 relative">
+                    <div class="flex items-center justify-between">
+                        <div class="w-5/12 px-6 animate-on-scroll" data-animation-type="zoom-in-out">
+                            <img 
+                                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/89797cc0-dc7e-45b7-919c-a3758ecf4322.png" 
+                                alt="Anime couple laughing together in a park under autumn leaves, one playfully chasing the other"
+                                class="rounded-lg shadow-md" 
+                                onerror="this.parentElement.style.display='none'"
+                            />
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-rose-500 border-4 border-white z-10"></div>
+                        <div class="w-5/12 px-6 text-left animate-on-scroll" data-animation-type="fade-in-left">
+                            <h3 class="text-xl font-semibold text-rose-600">First Laugh Together</h3>
+                            <p class="text-gray-600">That silly joke that broke the ice</p>
+                            <p class="text-rose-500 text-sm mt-2 animate-on-scroll" data-animation-type="pop-in" style="animation-delay: 0.3s;">Your laughter, Rida, is my favorite melody.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive love meter -->
+        <section class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto mb-20 animate-on-scroll" data-animation-type="fade-in-down">
+            <h2 class="text-3xl font-semibold text-rose-500 mb-6 text-center cursive">How Much Do You Mean To Me?</h2>
+            <div class="text-center">
+                <button onclick="showSurprise()" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Click to Find Out
+                </button>
+                <div id="surprise" class="hidden mt-6 animate-fadeIn">
+                    <p class="text-2xl text-rose-500 cursive mb-4">More than all the stars in the sky!</p>
+                    <div class="flex justify-center">
+                        <svg id="hearts" class="w-48 h-48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Filled heart will appear here on click -->
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating hearts footer -->
+    <footer class="relative py-12 bg-gradient-to-b from-pink-50 to-pink-100 overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-rose-500 cursive mb-4 animate-on-load" data-animation-type="slide-in-up">Always in My <span class="heart">❤</span>, Rida</h2>
+            <p class="text-xl text-gray-600 mb-8 animate-on-load" data-animation-type="slide-in-up" style="animation-delay: 0.2s;">Every moment with you is precious</p>
+            
+            <div class="flex justify-center space-x-6">
+                <button onclick="createHeart()" class="bg-white text-rose-500 rounded-full p-3 shadow-md hover:bg-rose-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="hearts-container" class="absolute inset-0 pointer-events-none"></div>
+    </footer>
+
+    <script>
+        // Function to show surprise message
+        function showSurprise() {
+            const surprise = document.getElementById('surprise');
+            const hearts = document.getElementById('hearts');
+            
+            // Toggle visibility
+            surprise.classList.toggle('hidden');
+            
+            // Create heart animation
+            if (!surprise.classList.contains('hidden')) {
+                // Clear previous hearts
+                hearts.innerHTML = '';
+                
+                // Create heart path
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", "M50 30 L20 10 L10 30 L50 60 L90 30 L80 10 Z");
+                path.setAttribute("fill", "#ec4899");
+                path.setAttribute("stroke", "#be185d");
+                path.setAttribute("stroke-width", "1");
+                
+                // Animate the heart
+                path.style.transform = "scale(0)";
+                path.style.transition = "transform 1s ease";
+                hearts.appendChild(path);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    path.style.transform = "scale(1.2)";
+                    setTimeout(() => path.style.transform = "scale(1)", 200);
+                }, 50);
+            }
+        }
+        
+        // Create floating hearts
+        function createHeart() {
+            const container = document.getElementById('hearts-container');
+            
+            for (let i = 0; i < 5; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.className = 'absolute text-rose-500 text-2xl animate-float opacity-0';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                
+                // Random delay for each heart
+                setTimeout(() => {
+                    heart.style.opacity = '1';
+                    container.appendChild(heart);
+                    
+                    // Remove after animation completes
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, i * 200);
+            }
+        }
+
+        // Typing Effect Script
+        const textToAnimate = [
+            "Rida, you are my everything!",
+            "My love for you is endless.",
+            "You make my world complete, Rida.",
+            "Forever and always, my dear.",
+            "Her text me Rida ❤" // NEW MESSAGE ADDED HERE
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        const animatedTextElement = document.getElementById('animated-text');
+        const typingSpeed = 100; // milliseconds per character
+        const deletingSpeed = 50; // milliseconds per character
+        const delayBetweenTexts = 1500; // milliseconds
+
+        function typeWriter() {
+            if (textIndex < textToAnimate.length) {
+                const currentText = textToAnimate[textIndex];
+                if (charIndex < currentText.length) {
+                    animatedTextElement.textContent += currentText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, typingSpeed);
+                } else {
+                    // Text typed, now wait and then start deleting
+                    setTimeout(deleteWriter, delayBetweenTexts);
+                }
+            } else {
+                // Loop back to the first text
+                textIndex = 0;
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
+
+        function deleteWriter() {
+            const currentText = textToAnimate[textIndex];
+            if (charIndex > 0) {
+                animatedTextElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(deleteWriter, deletingSpeed);
+            } else {
+                // Text deleted, move to the next text
+                textIndex++;
+                setTimeout(typeWriter, typingSpeed); // Start typing next text immediately
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of the target is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseFloat(entry.target.style.animationDelay) || 0;
+                        const animationType = entry.target.dataset.animationType; // Get animation type from data attribute
+                        
+                        if (animationType) {
+                            setTimeout(() => {
+                                entry.target.classList.add('animated', animationType);
+                            }, delay * 1000); // Convert seconds to milliseconds
+                        }
+                        
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for scroll animation
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                // Ensure elements start hidden if they are meant to animate on scroll
+                if (!element.classList.contains('animated')) { // Only hide if not already animated by load
+                    element.style.opacity = '0';
+                }
+                observer.observe(element);
+            });
+
+            // Apply load animations
+            document.querySelectorAll('.animate-on-load').forEach(element => {
+                const delay = parseFloat(element.style.animationDelay) || 0;
+                const animationType = element.dataset.animationType; // Get animation type from data attribute
+                if (animationType) {
+                    setTimeout(() => {
+                        element.classList.add('animated', animationType);
+                    }, delay * 1000);
+                }
+            });
+
+            // Special handling for staggered message cards
+            document.querySelectorAll('.message-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`; // Stagger delay
+                card.dataset.animationType = 'bounce-in'; // Set animation type
+                observer.observe(card); // Observe each card
+            });
+
+            // Special handling for staggered polaroid cards
+            document.querySelectorAll('.polaroid').forEach((polaroid, index) => {
+                polaroid.style.animationDelay = `${index * 0.1}s`; // Stagger delay
+                polaroid.dataset.animationType = 'flip-in-y'; // Set animation type
+                observer.observe(polaroid); // Observe each polaroid
+            });
+
+            // Special handling for timeline items (text and image containers)
+            // Note: The image containers themselves are observed, and their children will inherit or have their own delays.
+            document.querySelectorAll('.timeline-item-left').forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+                item.dataset.animationType = 'fade-in-right'; // Set animation type
+                observer.observe(item);
+            });
+            document.querySelectorAll('.timeline-item-right').forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+                item.dataset.animationType = 'fade-in-left'; // Set animation type
+                observer.observe(item);
+            });
+
+
+            // Start the typing effect when the page loads
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
